@@ -126,6 +126,8 @@ The main configurations are in `config/config.yaml`:
 - Ensure Docker is installed and running correctly.
 - Check logs for detailed execution steps.
 - Supports multiple LLM providers, tool formats are auto-selected based on configuration.
+- We also provide an automated failure analysis tool based on result trace files to help you quickly identify the root cause of bad cases.[here](https://github.com/Tokfinity/InfCode/blob/main/analyzer/README.md).
+
 
 
 ## Contact
