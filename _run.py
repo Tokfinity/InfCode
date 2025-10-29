@@ -555,7 +555,7 @@ class Runner:
 
             for result in generator_results:
                 if isinstance(result, Exception):
-                    self.logger.error(f"GeneratorLoop 异常: {result}")
+                    self.logger.error(f"GeneratorLoop exception: {result}")
                 else:
                     valid_results.append(result)
             self.logger.debug(
@@ -734,7 +734,6 @@ def run_one_issue(cfg, issue: str) -> dict[str, Any]:
     if not cfg.get("runner", {}).get("skip_selector", False):
         runner = Runner(cfg, ids)
         summary = asyncio.run(runner.run())
-        # 打印结果
         print("\n" + "=" * 80)
         print("total results")
         print("=" * 80)

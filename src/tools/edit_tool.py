@@ -629,7 +629,7 @@ class TextEditorTool(Tool):
         file_descriptor: str,
         init_line: int = 1,
         expand_tabs: bool = True,
-        max_lines: Optional[int] = None,  # 文件最大行，如果不为None则在返回中提示
+        max_lines: Optional[int] = None, 
     ):
         """Generate output for the CLI based on the content of a file."""
         file_content = maybe_truncate(file_content)

@@ -7,7 +7,6 @@ from typing import Union, Optional
 from swebench.harness.docker_utils import remove_image
 from src.managers.log.logger import Logger as CustomLogger
 
-# 导入原始的 swebench 函数
 from swebench.harness.docker_build import build_instance_image, run_threadpool
 
 
@@ -19,7 +18,7 @@ def patched_build_instance_images(
     namespace: str = None,
     tag: str = None,
     env_image_tag: str = None,
-    custom_logger: Optional[Union[logging.Logger, CustomLogger]] = None,  # 新增参数
+    custom_logger: Optional[Union[logging.Logger, CustomLogger]] = None,
 ):
     """
     Monkey patched version of build_instance_images that supports custom logger
@@ -95,7 +94,6 @@ def patched_build_instance_images(
 
 
 def apply_logger_patch():
-    """应用 logger patch"""
     import swebench.harness.docker_build as docker_build_module
 
     original_build_instance_images = docker_build_module.build_instance_images
@@ -111,7 +109,6 @@ def restore_logger_patch(original_function):
     docker_build_module.build_instance_images = original_function
 
 
-# 上下文管理器版本
 class LoggerPatch:
     """Context manager"""
     

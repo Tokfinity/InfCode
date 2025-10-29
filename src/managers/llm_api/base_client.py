@@ -422,7 +422,7 @@ class BaseLLMAPI(ABC):
             except Exception as e:
                 last_exception = e
                 if attempt < self.max_retries:
-                    delay = self.retry_delay * (2**attempt)  # 指数退避
+                    delay = self.retry_delay * (2**attempt)
                     if self.logger:
                         self.logger.warning(
                             f"{attempt + 1}th try failed，retry after {delay}s: {e}, traceback: {format_exc()}."

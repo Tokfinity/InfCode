@@ -243,7 +243,7 @@ Terminal time out."""
             else:
                 response_parts.append("No output")
 
-            response_parts.append("")  # 空行分隔
+            response_parts.append("") 
 
         return "\n".join(response_parts)
 

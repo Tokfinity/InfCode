@@ -19,7 +19,6 @@ from .base_client import (
     EmbeddingResponse,
 )
 
-# 导入所有客户端
 from .clients.openai.openai_client import OpenAIClient
 from .clients.anthropic.anthropic_client import AnthropicClient
 from .clients.deepseek.deepseek_client import DeepSeekClient
@@ -440,7 +439,6 @@ class LLMAPIManager:
         )
 
 
-# 便捷函数
 def create_manager(
     client_name: str, stream: bool = False, logger: Optional[Any] = None, **kwargs
 ) -> LLMAPIManager:
