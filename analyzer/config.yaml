@@ -1,0 +1,17 @@
+# Configuration file for trajectory analysis
+paths:
+  txt_path: "/root/henry/trajectory_analysis/unsolved.txt"
+  intermediate_output_path: "/root/henry/trajectory_analysis_test/per_instance_failure_analysis"
+  output_path: "/root/henry/trajectory_analysis_test/failure_analysis_report.txt"
+  logs_directory: "/root/peteWong/project/Code-agent/batch_out/batch-first/issues"
+  prompts_path: "/root/henry/Code-agent/src/managers/prompts/prompts_manager.py"
+  tools_path: "/root/henry/Code-agent/src/tools"
+
+# Dataset configuration
+dataset:
+  split: "Verified"  # Options: Verified, Lite, Test, Multimodal (bash-only not available on Hugging Face)
+
+# Optional: Add other configuration parameters
+settings:
+  max_workers: 20
+  num_agents: 1
