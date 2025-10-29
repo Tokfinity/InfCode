@@ -95,7 +95,6 @@ def worder_func_for_gen_result(ctx: Context, out_dir: Path):
     )
 
 
-# 这里是在新的进程里了
 def worker_function(ctx: Context, issue: str, idx: int, out_dir: Path) -> ProcResult:
     print(f"worker_function idx:{idx} issue:{issue}")
 
