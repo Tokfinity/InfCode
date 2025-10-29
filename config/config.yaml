@@ -1,0 +1,61 @@
+providers:
+  openrouter:
+    - "anthropic/claude-sonnet-4.5"
+
+dataset:
+  name: "princeton-nlp/SWE-bench_Verified"
+  split: "test"
+
+workspace:
+  path: "workspace"
+
+# Runner Settings
+runner:
+
+  # generator
+  skip_generator: false # Whether to skip the generator; for selector testing you can skip and load generator_results directly from dump files
+  generator_concurrency: 5  # GeneratorLoop patches num
+  generator_loop: # GeneratorLoop settings
+    max_turn: 140 # Max turns
+    temperature: 0.2 # Temperature
+  generator_result_dump: true # Whether to dump generator results for later selector testing
+  generator_result_dump_path: "workspace/generator_result_dump" # generator result dump path
+  generator_load_dump_result: true # Whether to skip examples that already have generated results
+
+  # selector
+  skip_selector: false # Whether to skip the selector; useful to test validation directly
+  selector_loop: # SelectorLoop settings
+    max_turn: 200 # Max turns
+    temperature: 0.2 # Temperature
+  selector_result_dump: true # Whether to dump selector results
+  selector_result_dump_path: "workspace/selector_result_dump"
+  selector_load_dump_result: true # Whether to skip examples that already have selection results
+
+# Image Builder
+builder:
+  max_workers: 16  # Image build concurrency
+  max_retries: 3 # Image build retry count
+  repo_root_path: "/testbed" # Repository root path
+
+# Log settings
+log:
+  base_path: "workspace/logs"
+  image_builder: "workspace/image_logs"  # Use temporary directory for image builder logs
+  disable_image_builder_logs: false  # Set to true to prevent saving log files
+
+# Final result paths
+result:
+  preds:
+    path: "result"
+
+# token_cache settings for claude models
+token_cache:
+  role_turns:
+    - turn: 0
+      role: "user"
+    - turn: 25
+      role: "assistant"
+    - turn: 50
+      role: "assistant"
+    - turn: 75
+      role: "assistant"

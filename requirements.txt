@@ -1,0 +1,41 @@
+# HTTP client
+httpx>=0.25.0
+requests>=2.28.0
+
+# Data Validation and Serialization
+pydantic>=2.0.0
+
+# log record
+loguru>=0.7.0
+
+# type-check support
+typing-extensions>=4.5.0
+
+# env management
+python-dotenv>=1.0.0
+
+# YAML config file parse
+PyYAML>=6.0
+
+# dataset process
+datasets>=2.14.0
+
+# JSONPath parse
+jsonpath-ng>=1.6.0
+
+# Docker support
+docker>=6.0.0
+
+# cli interact support
+pexpect>=4.8.0
+
+# SWE-bench relative requirements
+swebench>=1.0.0
+
+# develop requirements (optional)
+# pytest>=7.0.0
+# pytest-asyncio>=0.21.0
+# black>=23.0.0
+# flake8>=6.0.0
+# mypy>=1.0.0
+pydantic>=2.11.9
