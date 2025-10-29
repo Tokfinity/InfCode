@@ -138,7 +138,7 @@ research@tokfinity.com
 
 - [Pete Wong](https://petewongggg.github.io/)
 
-- [Shihao Zheng](https://github.com/kirito41dd)
+- [Kirito](https://github.com/kirito41dd)
 
 - [Hengzhi Zhang](https://henryzhang11.github.io)
 
