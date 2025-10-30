@@ -146,6 +146,8 @@ research@tokfinity.com
 
 - [Qingao Dong](https://qadong.github.io)
 
+- [Zhichao Li](https://github.com/LanWeiFRJ)
+
 
 
 ## 📄 License
