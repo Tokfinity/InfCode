@@ -1,9 +1,11 @@
 # InfCode
 
-[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![arXiv:2511.16004](https://img.shields.io/badge/TechReport-arXiv%3A2511.16004-b31a1b)](https://arxiv.org/abs/2511.16004)
 
 
-**InfCode** is an intelligent Code Agent System developed by [Tokfinity](https://www.tokfinity.com)'s Code Research team, which uses LLMs to automatically analyze and fix Code Repo issues. 
+InfCode is an adversarial multi-agent Code Agent System developed by [Tokfinity](https://www.tokfinity.com)'s Code Research team & Beihang University, which uses LLMs to automatically analyze and fix Code Repo issues. 
+
+InfCode introduces a dual-agent adversarial refinement framework that iteratively improves both test patches and code patches, producing highly reliable fixes verified under strengthened test suites. 
 
 **Project Status:** InfCode has achieved **79.4%** solution rate on the SWE-Bench Verified split, demonstrating the **latest SOTA** performance.
 
@@ -15,9 +17,13 @@
 
 ### Core Modules
 
-The InfCode adopts a generate-select architectural pattern. Its core modules include the **Patch Generator** and the **Patch Selector**, which are responsible for generating candidate patches and selecting the optimal patch, respectively.
+The InfCode adopts a generate-select architectural pattern. Its core modules include the **Patch Generation** and the **Patch Selection**, which are responsible for generating candidate patches and selecting the optimal patch, respectively.
 
 - **Patch Generator**: Register multiple groups of generators, where each generator is configured with a separate container to generate and repair multiple candidate patches in parallel. Can interact with `File Editor`, `File Search`, `Bash Executor`, `Result Submitter` tools. The Patch Generator runs up to $5$ attempts and gathers all produced patches. 
+
+  - The Generator internally contains two agents: a **Test Patch Generator** and a **Code Patch Generator**, that iteratively improve tests and code in an adversarial loop. The Test Generator strengthens tests to better expose faults, and the Code Generator refines patches to satisfy the newly enhanced tests.
+
+
 - **Patch Selector**: Select the best patch from all the candidate patches. Can interact with `File Editor`, `File Search`, `Bash Executor` tools.
 
 
